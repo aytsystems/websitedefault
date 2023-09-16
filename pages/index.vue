@@ -62,6 +62,7 @@
           </a>
         </v-card-text>
         <v-card-actions>
+          {{ this.$config.hcaptcha.site_key }}
           <vue-hcaptcha
               :sitekey="this.$config.hcaptcha.site_key"
               @verify="onVerify"
