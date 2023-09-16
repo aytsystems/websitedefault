@@ -1,5 +1,6 @@
 
 export const X_KEY = "251c10a4-5724-45e5-80be-f219d16a1a1d"
+export const HCAPTCHA_SITE_KEY = "6307d27c-589f-4e23-acfd-4b007b91a715"
 
 export const FIRST_COLOR = '#000000'
 export const SECOND_COLOR = '#CC0000'

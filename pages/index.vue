@@ -62,9 +62,9 @@
           </a>
         </v-card-text>
         <v-card-actions>
-          {{ this.$config.hcaptcha.site_key }}
+          {{ hcaptcha }}
           <vue-hcaptcha
-              :sitekey="this.$config.hcaptcha.site_key"
+              :sitekey="hcaptcha"
               @verify="onVerify"
             >
           </vue-hcaptcha>
@@ -83,12 +83,20 @@
 </template>
 
 <script>
+import {HCAPTCHA_SITE_KEY} from '../configs/configs'
+
 import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
 
 export default {
   name: 'IndexPage',
   components: {
     VueHcaptcha
+  },
+
+  data () {
+    return {
+      hcaptcha: HCAPTCHA_SITE_KEY
+    }
   },
 
   methods: {

@@ -19,12 +19,6 @@ export default {
     ]
   },
 
-  publicRuntimeConfig: {
-    hcaptcha: {
-      site_key: process.env.HCAPTCHA_SITE_KEY // for example
-    }
-  },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
