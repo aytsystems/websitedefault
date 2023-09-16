@@ -62,6 +62,11 @@
           </a>
         </v-card-text>
         <v-card-actions>
+          <vue-hcaptcha
+              :sitekey="this.$config.hcaptcha.site_key"
+              @verify="onVerify"
+            >
+          </vue-hcaptcha>
           <v-spacer />
           <v-btn
             color="primary"
@@ -77,7 +82,20 @@
 </template>
 
 <script>
+import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: {
+    VueHcaptcha
+  },
+
+  methods: {
+    onVerify(token, ekey) {
+      this.verified = true;
+      this.token = token;
+      this.eKey = ekey;
+    },
+  }
 }
 </script>

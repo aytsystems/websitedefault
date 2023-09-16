@@ -83,14 +83,22 @@
       :absolute="!fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+
+      <span>&copy; {{ new Date().getFullYear()  }} {{ $config.captcha}}</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
+
 export default {
   name: 'DefaultLayout',
+
+  components: {
+    VueHcaptcha
+  },
+
   data () {
     return {
       clipped: false,
