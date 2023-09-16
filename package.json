@@ -16,6 +16,7 @@
     "nuxt": "^2.15.8",
     "v-mask": "^2.3.0",
     "v-money": "^0.8.1",
+    "v-owl-carousel": "^1.0.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-snotify": "^3.2.1",
