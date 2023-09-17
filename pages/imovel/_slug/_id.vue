@@ -6,31 +6,31 @@
 export default {
   name: "id",
   head() {
-    if (!this.item.titulo_publicitario) return null
+    if (!this.item.name) return null
       return {
-        title: this.item.titulo_publicitario,
+        title: this.item.name,
         meta: [
-          { hid: "title", name: "title", content: this.item.titulo_publicitario },
+          { hid: "title", name: "title", content: this.item.name },
           {
             hid: "description",
             name: "description",
-            content: this.item.texto_publicitario,
+            content: this.item.name,
           },
           {
             hid: "og:title",
             property: "og:title",
-            content: this.item.titulo_publicitario,
+            content: this.item.status,
           },
           { hid: "og:type", property: "og:type", content: "website" },
           {
             hid: "og:image",
             property: "og:image",
-            content: this.item.first_photo,
+            content: this.item.image,
           },
           {
             hid: "og:url",
             property: "og:url",
-            content: this.item.link,
+            content: this.item.location.url,
           },
           { hid: "og:locale", property: "og:locale", content: "pt_BR" },
         ],
@@ -48,7 +48,7 @@ export default {
       await this.$store
         .dispatch("properties/getProperty", this.$route.params.id)
         .then((response) => {
-          this.item = response.data;
+          this.item = response;
         })
         .catch((error) => {});
     }
