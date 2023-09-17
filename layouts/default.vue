@@ -86,10 +86,15 @@
 
       <span>&copy; {{ new Date().getFullYear()  }}</span>
     </v-footer>
+
+    <vue-snotify></vue-snotify>
   </v-app>
 </template>
 
 <script>
+import Vue from "vue"
+import global from '~/mixins.js/global.js'
+Vue.mixin(global)
 
 export default {
   name: 'DefaultLayout',

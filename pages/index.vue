@@ -1,6 +1,13 @@
 <template>
+  <div>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
+      <div class="mt-8">
+         <v-btn color="primary" @click="testVuetify()">
+          Teste Vuetify
+         </v-btn>
+      </div>
+
       <div class="mt-8">
          <money class="monetary" v-model="valor_monetario" v-bind="valor_venda"></money>
       </div>
@@ -46,6 +53,7 @@
 
     </v-col>
   </v-row>
+  </div>
 </template>
 
 <script>
@@ -89,6 +97,12 @@ export default {
       this.verified = true;
       this.token = token;
       this.eKey = ekey;
+    },
+
+    testVuetify(){
+      console.log('entrou')
+        this.$snotify.error('Erro')
+        this.$snotify.success('Sucesso')
     }
   },
 }
