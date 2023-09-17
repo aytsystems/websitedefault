@@ -119,3 +119,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.monetary {
+    background-color: #FFFFFF;
+    border: 1px solid #909090;
+    border-radius: 4px;
+    padding: 7px;
+    width: 100%;
+}
+</style>
