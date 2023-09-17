@@ -1,29 +1,29 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-actions>
+      <div class="mt-4">
+       <v-text-field
+          v-model="cep"
+          v-mask="['#####-###']"
+          outlined
+          dense
+        >
+          <template v-slot:label>
+              <span>CEP</span>
+          </template>
+        </v-text-field>
+      </div>
+
+      <div class="mt-4">
           {{ hcaptcha }}
           <vue-hcaptcha
               :sitekey="hcaptcha"
               @verify="onVerify"
             >
           </vue-hcaptcha>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
+      </div>
 
-
+      <div class="mt-8">
         <no-ssr> <!-- important to add no-ssr-->
           <carousel v-model="model"
                 :cycle="cycle"
@@ -39,9 +39,8 @@
           </carousel>
 
         </no-ssr>
+      </div>
 
-
-      </v-card>
     </v-col>
   </v-row>
 </template>
@@ -62,7 +61,9 @@ export default {
 
       cycle: false,
       model: 0,
-      dialog_carousel: false
+      dialog_carousel: false,
+
+      cep: ''
     }
   },
 
