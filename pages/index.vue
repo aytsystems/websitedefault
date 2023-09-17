@@ -6,61 +6,6 @@
         <VuetifyLogo />
       </v-card>
       <v-card>
-        <v-card-title class="headline">
-         8h18 add v-owl-carousel Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
         <v-card-actions>
           {{ hcaptcha }}
           <vue-hcaptcha
@@ -77,6 +22,25 @@
             Continue
           </v-btn>
         </v-card-actions>
+
+
+        <no-ssr> <!-- important to add no-ssr-->
+          <carousel v-model="model"
+                :cycle="cycle"
+                height="300px"
+                hide-delimiters>
+            <img src="https://space-realstate.nyc3.digitaloceanspaces.com/public/uploads/properties/01ddf3b0-0eff-4bb3-a118-8f7fad06e6f0/8c0829de-c1ad-4208-9fe7-318b7e6d68c7/20230824075009-apartamento-decorado-7.webp">
+
+            <img src="https://space-realstate.nyc3.digitaloceanspaces.com/public/uploads/properties/01ddf3b0-0eff-4bb3-a118-8f7fad06e6f0/8c0829de-c1ad-4208-9fe7-318b7e6d68c7/20230824075010-d0e3f8b1b9c76c783d70413fc059ab4d.webp">
+
+            <img src="https://space-realstate.nyc3.digitaloceanspaces.com/public/uploads/properties/01ddf3b0-0eff-4bb3-a118-8f7fad06e6f0/8c0829de-c1ad-4208-9fe7-318b7e6d68c7/20230824075009-apartamento-decorado-7.webp">
+
+            <img src="https://space-realstate.nyc3.digitaloceanspaces.com/public/uploads/properties/01ddf3b0-0eff-4bb3-a118-8f7fad06e6f0/8c0829de-c1ad-4208-9fe7-318b7e6d68c7/20230824075010-d0e3f8b1b9c76c783d70413fc059ab4d.webp">
+          </carousel>
+
+        </no-ssr>
+
+
       </v-card>
     </v-col>
   </v-row>
@@ -84,7 +48,6 @@
 
 <script>
 import {HCAPTCHA_SITE_KEY} from '../configs/configs'
-
 import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
 
 export default {
@@ -93,9 +56,13 @@ export default {
     VueHcaptcha
   },
 
-  data () {
+  data() {
     return {
-      hcaptcha: HCAPTCHA_SITE_KEY
+      hcaptcha: HCAPTCHA_SITE_KEY,
+
+      cycle: false,
+      model: 0,
+      dialog_carousel: false
     }
   },
 
@@ -104,7 +71,7 @@ export default {
       this.verified = true;
       this.token = token;
       this.eKey = ekey;
-    },
-  }
+    }
+  },
 }
 </script>
