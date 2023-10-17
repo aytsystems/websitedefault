@@ -21,6 +21,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/fonts/roboto.css',
     '~/assets/vue-snotify/styles/material.css',
   ],
 
@@ -61,6 +62,9 @@ export default {
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    optionsPath: './vuetify.options.js', // vuetify option like theme.
+    defaultAssets: false,
+    treeShake: true,
     theme: {
       dark: true,
       themes: {
@@ -76,6 +80,15 @@ export default {
       }
     }
   },
+
+  /*
+   vuetify: {
+        customVariables: ['~/assets/variables.scss'], // vuetify var styles.
+        optionsPath: './vuetify.options.js', // vuetify option like theme.
+        defaultAssets: false,
+        treeShake: true
+    }
+  */
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
