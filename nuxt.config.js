@@ -23,6 +23,7 @@ export default {
   css: [
     '~/assets/fonts/roboto.css',
     '~/assets/vue-snotify/styles/material.css',
+    '@mdi/font/css/materialdesignicons.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -41,6 +42,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    ['@nuxtjs/vuetify', { iconfont: 'mdi' }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
